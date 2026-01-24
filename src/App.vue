@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, watchEffect } from 'vue'
 import { usePortfolioStore } from './stores/portfolioStore'
+import { useSettingsStore } from './stores/settings'
+import { useStatsStore } from './stores/stats'
+import { useAudio } from './composables/useAudio'
+import { useKeyboardControls } from './composables/useKeyboardControls'
+import SettingsPanel from './components/ui/SettingsPanel.vue'
 import { 
   Github, 
   Linkedin, 
@@ -8,13 +13,29 @@ import {
   Layers,
   Zap,
   Globe,
-  Plus,
   ArrowUpRight,
-  ChevronDown
+  ChevronDown,
+  Settings,
+  Moon,
+  Sun
 } from 'lucide-vue-next'
 import { Motion } from '@motionone/vue'
 
 const store = usePortfolioStore()
+const settingsStore = useSettingsStore()
+const statsStore = useStatsStore()
+const audio = useAudio()
+const { lastAction } = useKeyboardControls()
+
+onMounted(() => {
+  statsStore.recordVisit()
+})
+
+watchEffect(() => {
+  if (lastAction.value === 'help') {
+    settingsStore.toggleHelp()
+  }
+})
 
 const projects = [
   { id: 1, title: 'Vaultify', category: 'Web Engineering', desc: 'Secure decentralized asset management platform with real-time biometric verification.', stats: '99% Uptime', icon: Zap },
@@ -28,10 +49,21 @@ const filteredProjects = computed(() => {
 })
 
 const categories = ['All', 'Web Engineering', 'Product Design', 'Systems Architecture']
+
+function toggleTheme() {
+  audio.playClick()
+  const nextTheme = settingsStore.theme === 'dark' ? 'light' : settingsStore.theme === 'light' ? 'system' : 'dark'
+  settingsStore.setTheme(nextTheme)
+}
+
+function openSettings() {
+  audio.playClick()
+  settingsStore.toggleHelp()
+}
 </script>
 
 <template>
-  <div class="min-h-screen bg-portfolio-bg">
+  <div class="min-h-screen bg-portfolio-bg transition-colors duration-500" :class="{ 'dark': settingsStore.isDarkMode, 'light': !settingsStore.isDarkMode }">
     
     <!-- Custom Cursor Glow -->
     <div class="fixed inset-0 pointer-events-none z-0">
@@ -42,16 +74,20 @@ const categories = ['All', 'Web Engineering', 'Product Design', 'Systems Archite
     <!-- Navigation -->
     <nav class="fixed w-full z-50 px-10 py-8 flex justify-between items-center mix-blend-difference">
       <div class="flex items-center space-x-2">
-        <span class="font-display font-black text-2xl tracking-tighter uppercase italic">M. Kazi</span>
+        <span class="font-display font-black text-2xl tracking-tighter uppercase italic text-slate-900 dark:text-white">M. Kazi</span>
       </div>
       <div class="hidden md:flex items-center space-x-12">
-        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors">Strategy</a>
-        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors">Case Studies</a>
-        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors">Contact</a>
+        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors text-slate-900 dark:text-white">Strategy</a>
+        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors text-slate-900 dark:text-white">Case Studies</a>
+        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors text-slate-900 dark:text-white">Contact</a>
+        <button @click="openSettings" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+          <Settings class="text-slate-900 dark:text-white" :size="20" />
+        </button>
+        <button @click="toggleTheme" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+          <Sun v-if="settingsStore.isDarkMode" class="text-amber-400" :size="20" />
+          <Moon v-else class="text-blue-600" :size="20" />
+        </button>
       </div>
-      <button class="p-3 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full hover:bg-white/20 transition-all">
-        <Plus :size="18" />
-      </button>
     </nav>
 
     <main class="relative z-10 max-w-[1440px] mx-auto px-10">
@@ -219,10 +255,11 @@ const categories = ['All', 'Web Engineering', 'Product Design', 'Systems Archite
        <div class="max-w-[1440px] mx-auto pt-20 mt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-700 italic">Architecture by Staff Engineering</p>
           <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-700">© 2026 M. Kazi</p>
-       </div>
-    </footer>
+        </div>
+     </footer>
 
-  </div>
+     <SettingsPanel />
+   </div>
 </template>
 
 <style>
