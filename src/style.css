@@ -1,13 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-portfolio-bg: #0a0a0f;
+  --color-portfolio-card: rgba(255, 255, 255, 0.03);
+  --color-portfolio-primary: #ffffff;
+  --color-portfolio-secondary: #888888;
+  --color-portfolio-accent: #818cf8;
+}
 
 :root {
   color-scheme: dark;
 }
 
 body {
-  @apply bg-portfolio-bg text-portfolio-primary transition-colors duration-500 antialiased;
+  background-color: var(--color-portfolio-bg);
+  color: var(--color-portfolio-primary);
+  transition: colors 0.5s;
   margin: 0;
   display: block;
   min-height: 100vh;
@@ -24,11 +32,21 @@ body {
 }
 
 .glass {
-  @apply bg-portfolio-card/40 backdrop-blur-2xl border border-white/5;
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .brutalist-card {
-  @apply bg-portfolio-card border border-white/10 rounded-3xl overflow-hidden hover:border-portfolio-accent transition-all duration-500;
+  background-color: var(--color-portfolio-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.brutalist-card:hover {
+  border-color: var(--color-portfolio-accent);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -36,13 +54,21 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-transparent;
+  background: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full hover:bg-white/20;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-400 to-white;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #fff, #94a3b8, #fff);
 }
