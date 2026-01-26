@@ -1,269 +1,441 @@
 <script setup lang="ts">
-import { computed, onMounted, watchEffect } from 'vue'
-import { usePortfolioStore } from './stores/portfolioStore'
-import { useSettingsStore } from './stores/settings'
-import { useStatsStore } from './stores/stats'
-import { useAudio } from './composables/useAudio'
-import { useKeyboardControls } from './composables/useKeyboardControls'
-import SettingsPanel from './components/ui/SettingsPanel.vue'
-import { 
-  Github, 
-  Linkedin, 
-  Twitter, 
-  Layers,
-  Zap,
-  Globe,
-  ArrowUpRight,
-  ChevronDown,
-  Settings,
-  Moon,
-  Sun
+import { ref, computed } from 'vue'
+import {
+    Terminal,
+    Code2,
+    Globe,
+    MessageSquare,
+    Mail,
+    Github,
+    Linkedin,
+    ChevronRight,
+    CheckCircle2,
+    Cpu,
+    Layers,
+    Zap,
+    Shield,
+    ExternalLink,
+    Activity,
+    Box,
+    Database,
+    Server
 } from 'lucide-vue-next'
-import { Motion } from '@motionone/vue'
 
-const store = usePortfolioStore()
-const settingsStore = useSettingsStore()
-const statsStore = useStatsStore()
-const audio = useAudio()
-const { lastAction } = useKeyboardControls()
-
-onMounted(() => {
-  statsStore.recordVisit()
-})
-
-watchEffect(() => {
-  if (lastAction.value === 'help') {
-    settingsStore.toggleHelp()
-  }
-})
-
-const projects = [
-  { id: 1, title: 'Vaultify', category: 'Web Engineering', desc: 'Secure decentralized asset management platform with real-time biometric verification.', stats: '99% Uptime', icon: Zap },
-  { id: 2, title: 'Orbital UI', category: 'Product Design', desc: 'Next-generation design system for aerospace interfaces, focusing on high-stress legibility.', stats: '4.8k Stars', icon: Layers },
-  { id: 3, title: 'Nexus Protocol', category: 'Systems Architecture', desc: 'High-throughput communication layer for edge computing in autonomous logistics.', stats: '1.2ms Latency', icon: Globe }
+// VIBE Ecosystem Products
+const vibeProducts = [
+    {
+        name: 'VIBE CLI',
+        tagline: 'Multi-agent AI coding tool',
+        description: 'Single-command TUI, multi-LLM router, execution modes, security-first approvals.',
+        icon: Terminal,
+        status: 'In Development'
+    },
+    {
+        name: 'VIBE VS Code',
+        tagline: 'Multi-agent IDE assistant',
+        description: 'CLI parity, state-machine orchestration, real-time streaming chat.',
+        icon: Code2,
+        status: 'Planned'
+    },
+    {
+        name: 'VIBE Web',
+        tagline: 'Documentation hub',
+        description: 'Documentation and onboarding hub for the entire ecosystem.',
+        icon: Globe,
+        status: 'Live'
+    },
+    {
+        name: 'VIBE Chat',
+        tagline: 'AI website builder',
+        description: 'AI web app & website builder powered by generative agents.',
+        icon: MessageSquare,
+        status: 'Planned'
+    }
 ]
 
-const filteredProjects = computed(() => {
-  if (store.activeCategory === 'All') return projects
-  return projects.filter(p => p.category === store.activeCategory)
-})
+const selectedProjects = [
+    { name: 'Country Explorer', category: 'Web', tech: 'React', description: 'Country data exploration dashboard' },
+    { name: 'Recipe Finder', category: 'Web', tech: 'Vue', description: 'Recipe discovery application' },
+    { name: 'Meme Generator', category: 'Web', tech: 'React', description: 'Custom meme creation tool' },
+    { name: 'Mini Games', category: 'Game', tech: 'React', description: 'Collection of mini-games' }
+]
 
-const categories = ['All', 'Web Engineering', 'Product Design', 'Systems Architecture']
-
-function toggleTheme() {
-  audio.playClick()
-  const nextTheme = settingsStore.theme === 'dark' ? 'light' : settingsStore.theme === 'light' ? 'system' : 'dark'
-  settingsStore.setTheme(nextTheme)
+const skillsByCategory = {
+    'AI & Agents': ['RAG', 'H-RAG', 'Multi-Agent Systems', 'Tooling', 'LLM Routing'],
+    'Developer Platforms': ['CLI Tools', 'VS Code Extensions', 'Automation', 'DX'],
+    'Engineering & Stack': ['Python', 'Node.js', 'React', 'TypeScript', 'APIs', 'Cloud'],
+    'LLM Ecosystem': ['OpenAI', 'Claude', 'Gemini', 'OpenRouter', 'Ollama']
 }
 
-function openSettings() {
-  audio.playClick()
-  settingsStore.toggleHelp()
+const activeSection = ref('overview')
+const searchQuery = ref('')
+
+const filteredProjects = computed(() => {
+    return selectedProjects.filter(p =>
+        p.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+        p.tech.toLowerCase().includes(searchQuery.value.toLowerCase())
+    )
+})
+
+const navItems = [
+    { id: 'overview', label: 'Overview', icon: Activity },
+    { id: 'vibe', label: 'VIBE Ecosystem', icon: Box },
+    { id: 'work', label: 'Projects', icon: Code2 },
+    { id: 'skills', label: 'Skills', icon: Database },
+    { id: 'contact', label: 'Contact', icon: Server }
+]
+
+function setActiveSection(id: string) {
+    activeSection.value = id
+    const element = document.getElementById(id)
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+    }
 }
 </script>
 
 <template>
-  <div class="min-h-screen bg-portfolio-bg transition-colors duration-500" :class="{ 'dark': settingsStore.isDarkMode, 'light': !settingsStore.isDarkMode }">
-    
-    <!-- Custom Cursor Glow -->
-    <div class="fixed inset-0 pointer-events-none z-0">
-       <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-blue-600/10 blur-[150px] rounded-full"></div>
-       <div class="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-indigo-600/10 blur-[150px] rounded-full"></div>
+    <div class="min-h-screen bg-[#0f172a] text-slate-300 flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-[#1e293b] border-r border-slate-700 flex flex-col">
+            <!-- Logo -->
+            <div class="p-6 border-b border-slate-700">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
+                        <Terminal class="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-white">MK</h1>
+                        <p class="text-xs text-slate-500">Portfolio v3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4">
+                <div class="space-y-1">
+                    <button
+                        v-for="item in navItems"
+                        :key="item.id"
+                        @click="setActiveSection(item.id)"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-all"
+                        :class="activeSection === item.id
+                            ? 'bg-indigo-600/20 text-indigo-400'
+                            : 'hover:bg-slate-700/50 text-slate-400 hover:text-white'"
+                    >
+                        <component :is="item.icon" class="w-5 h-5" />
+                        <span>{{ item.label }}</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- User Card -->
+            <div class="p-4 border-t border-slate-700">
+                <div class="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white font-semibold">
+                            MK
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-white">Musharraf Kazi</p>
+                            <p class="text-xs text-slate-500">AI Engineer</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://github.com/mk-knight23" target="_blank" rel="noopener noreferrer"
+                           class="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors flex-1 flex justify-center">
+                            <Github class="w-4 h-4" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/kazi-musharraf-0674871a4" target="_blank" rel="noopener noreferrer"
+                           class="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors flex-1 flex justify-center">
+                            <Linkedin class="w-4 h-4" />
+                        </a>
+                        <a href="mailto:mk.knight970@gmail.com"
+                           class="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors flex-1 flex justify-center">
+                            <Mail class="w-4 h-4" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-auto">
+            <div class="p-8 max-w-6xl mx-auto">
+                <!-- Header -->
+                <header class="mb-8">
+                    <h1 class="text-3xl font-bold text-white mb-2">Portfolio Dashboard</h1>
+                    <p class="text-slate-400">AI Engineer & Indie Builder</p>
+                </header>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-4 gap-4 mb-8">
+                    <div class="bg-[#1e293b] border border-slate-700 rounded-xl p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-slate-500 text-sm">Total Projects</span>
+                            <Activity class="w-5 h-5 text-indigo-500" />
+                        </div>
+                        <div class="text-3xl font-bold text-white">60+</div>
+                        <div class="text-xs text-green-500 mt-1">+12 this month</div>
+                    </div>
+                    <div class="bg-[#1e293b] border border-slate-700 rounded-xl p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-slate-500 text-sm">Products</span>
+                            <Box class="w-5 h-5 text-green-500" />
+                        </div>
+                        <div class="text-3xl font-bold text-white">4</div>
+                        <div class="text-xs text-slate-500 mt-1">VIBE Ecosystem</div>
+                    </div>
+                    <div class="bg-[#1e293b] border border-slate-700 rounded-xl p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-slate-500 text-sm">Focus</span>
+                            <Cpu class="w-5 h-5 text-purple-500" />
+                        </div>
+                        <div class="text-3xl font-bold text-purple-400">AI</div>
+                        <div class="text-xs text-slate-500 mt-1">Agentic Systems</div>
+                    </div>
+                    <div class="bg-[#1e293b] border border-slate-700 rounded-xl p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-slate-500 text-sm">Location</span>
+                            <Server class="w-5 h-5 text-slate-500" />
+                        </div>
+                        <div class="text-3xl font-bold text-white">India</div>
+                        <div class="text-xs text-green-500 mt-1">Remote/Hybrid</div>
+                    </div>
+                </div>
+
+                <!-- Overview Section -->
+                <section id="overview" class="mb-12">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Activity class="w-5 h-5 text-indigo-500" />
+                        Overview
+                    </h2>
+                    <div class="bg-[#1e293b] border border-slate-700 rounded-xl p-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-4">About</h3>
+                                <p class="text-slate-400 leading-relaxed mb-4">
+                                    AI Engineer and Indie Product Builder specializing in <strong class="text-white">Agentic AI</strong>,
+                                    <strong class="text-white"> Developer Tools</strong>,
+                                    <strong class="text-white"> Multi-LLM Routing</strong>, and
+                                    <strong class="text-white"> SaaS Automation</strong>.
+                                </p>
+                                <p class="text-slate-400 leading-relaxed">
+                                    Building the <span class="text-indigo-400">VIBE Ecosystem</span> — a multi-product AI developer
+                                    platform focused on AI-powered coding workflows, multi-agent orchestration, and
+                                    production-grade developer tooling.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-4">Quick Stats</h3>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between py-2 border-b border-slate-700">
+                                        <span class="text-slate-500">Experience</span>
+                                        <span class="text-white">Full-stack</span>
+                                    </div>
+                                    <div class="flex justify-between py-2 border-b border-slate-700">
+                                        <span class="text-slate-500">Stack</span>
+                                        <span class="text-white">Python, React, TS</span>
+                                    </div>
+                                    <div class="flex justify-between py-2 border-b border-slate-700">
+                                        <span class="text-slate-500">Status</span>
+                                        <span class="text-green-400">Available</span>
+                                    </div>
+                                    <div class="flex justify-between py-2">
+                                        <span class="text-slate-500">Commitment</span>
+                                        <span class="text-white">Remote/Hybrid</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIBE Ecosystem Section -->
+                <section id="vibe" class="mb-12">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Box class="w-5 h-5 text-indigo-500" />
+                        VIBE Ecosystem
+                    </h2>
+                    <p class="text-slate-400 mb-6">Flagship project — A multi-product AI developer platform</p>
+
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div v-for="product in vibeProducts" :key="product.name"
+                             class="bg-[#1e293b] border border-slate-700 rounded-xl p-5 hover:border-indigo-500/50 transition-all">
+                            <div class="flex items-start gap-4">
+                                <div class="p-3 bg-indigo-600/20 rounded-lg">
+                                    <component :is="product.icon" class="w-5 h-5 text-indigo-400" />
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <h4 class="font-semibold text-white">{{ product.name }}</h4>
+                                        <span class="text-xs px-2 py-0.5 rounded-full"
+                                              :class="product.status === 'Live' ? 'bg-green-500/10 text-green-400' : 'bg-slate-700 text-slate-400'">
+                                            {{ product.status }}
+                                        </span>
+                                    </div>
+                                    <p class="text-indigo-400 text-sm mb-2">{{ product.tagline }}</p>
+                                    <p class="text-slate-500 text-sm">{{ product.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Highlights -->
+                    <div class="bg-[#1e293b] border border-slate-700 rounded-xl p-6">
+                        <h3 class="font-semibold text-white mb-4 flex items-center gap-2">
+                            <CheckCircle2 class="w-5 h-5 text-green-500" />
+                            Technical Highlights
+                        </h3>
+                        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                            <div v-for="(item, i) in [
+                                'Hierarchical RAG (H-RAG) + Decision Agents + Orchestrator',
+                                'Multi-provider LLM routing with fallback and evaluation',
+                                '55-feature roadmap with 4-tier system prompt strategy',
+                                'Competitive analysis across 60 AI coding tools',
+                                'Monorepo strategy with ecosystem boundaries',
+                                'Security-first architecture'
+                            ]" :key="i" class="flex items-start gap-2 text-sm text-slate-400">
+                                <ChevronRight class="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
+                                <span>{{ item }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="work" class="mb-12">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Code2 class="w-5 h-5 text-indigo-500" />
+                        Selected Projects
+                    </h2>
+                    <p class="text-slate-400 mb-6">A showcase of recent work across web, games, and tools.</p>
+
+                    <!-- Search -->
+                    <div class="relative mb-6">
+                        <input
+                            v-model="searchQuery"
+                            type="text"
+                            placeholder="Search projects..."
+                            class="w-full px-4 py-3 bg-[#1e293b] border border-slate-700 rounded-lg text-slate-300 placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+                        />
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div v-for="project in filteredProjects" :key="project.name"
+                             class="bg-[#1e293b] border border-slate-700 rounded-xl p-5 hover:border-indigo-500/50 transition-all cursor-pointer group">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="px-2 py-1 bg-indigo-600/20 text-indigo-400 rounded text-xs font-medium">
+                                    {{ project.category }}
+                                </span>
+                                <span class="px-2 py-1 bg-slate-700 text-slate-400 rounded text-xs">
+                                    {{ project.tech }}
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-1 group-hover:text-indigo-400 transition-colors">
+                                {{ project.name }}
+                            </h4>
+                            <p class="text-sm text-slate-500">{{ project.description }}</p>
+                        </div>
+                    </div>
+
+                    <a href="https://github.com/mk-knight23?tab=repositories" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 mt-6 text-indigo-400 hover:text-indigo-300 transition-colors">
+                        View all 60 projects <ExternalLink class="w-4 h-4" />
+                    </a>
+                </section>
+
+                <!-- Skills Section -->
+                <section id="skills" class="mb-12">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Database class="w-5 h-5 text-indigo-500" />
+                        Skills & Expertise
+                    </h2>
+                    <p class="text-slate-400 mb-6">Core competencies across AI, development, and product.</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div v-for="(skills, category) in skillsByCategory" :key="category"
+                             class="bg-[#1e293b] border border-slate-700 rounded-xl p-5">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span v-if="category.includes('AI')" class="p-2 bg-indigo-600/20 rounded-lg">
+                                    <Cpu class="w-4 h-4 text-indigo-400" />
+                                </span>
+                                <span v-else-if="category.includes('Developer')" class="p-2 bg-indigo-600/20 rounded-lg">
+                                    <Layers class="w-4 h-4 text-indigo-400" />
+                                </span>
+                                <span v-else-if="category.includes('LLM')" class="p-2 bg-indigo-600/20 rounded-lg">
+                                    <Zap class="w-4 h-4 text-indigo-400" />
+                                </span>
+                                <span v-else class="p-2 bg-indigo-600/20 rounded-lg">
+                                    <Shield class="w-4 h-4 text-indigo-400" />
+                                </span>
+                                <h4 class="font-semibold text-white">{{ category }}</h4>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span v-for="skill in skills" :key="skill"
+                                      class="px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-sm">
+                                    {{ skill }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="mb-12">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Server class="w-5 h-5 text-indigo-500" />
+                        Get In Touch
+                    </h2>
+                    <p class="text-slate-400 mb-6 max-w-2xl">
+                        Actively building the VIBE Ecosystem and open to opportunities in AI Engineering,
+                        Applied AI, Agent Systems, Developer Tools, SaaS Platforms, and Cloud AI roles.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <span class="px-4 py-2 bg-[#1e293b] border border-slate-700 rounded-lg text-sm">
+                            <span class="text-slate-500">Location:</span>
+                            <span class="text-white ml-2">India</span>
+                        </span>
+                        <span class="px-4 py-2 bg-[#1e293b] border border-slate-700 rounded-lg text-sm">
+                            <span class="text-slate-500">Available:</span>
+                            <span class="text-green-400 ml-2">Remote & Hybrid</span>
+                        </span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="mailto:mk.knight970@gmail.com"
+                           class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors">
+                            <Mail class="w-5 h-5" /> Email
+                        </a>
+                        <a href="https://github.com/mk-knight23" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 px-6 py-3 bg-[#1e293b] border border-slate-700 hover:bg-slate-700 text-white rounded-lg font-medium transition-colors">
+                            <Github class="w-5 h-5" /> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/kazi-musharraf-0674871a4" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 px-6 py-3 bg-[#1e293b] border border-slate-700 hover:bg-slate-700 text-white rounded-lg font-medium transition-colors">
+                            <Linkedin class="w-5 h-5" /> LinkedIn
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="py-6 border-t border-slate-700">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+                        <p>&copy; 2025 MUSHARRAF KAZI. All rights reserved.</p>
+                        <p>Part of a 60-project portfolio ecosystem</p>
+                    </div>
+                </footer>
+            </div>
+        </main>
     </div>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-10 py-8 flex justify-between items-center mix-blend-difference">
-      <div class="flex items-center space-x-2">
-        <span class="font-display font-black text-2xl tracking-tighter uppercase italic text-slate-900 dark:text-white">M. Kazi</span>
-      </div>
-      <div class="hidden md:flex items-center space-x-12">
-        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors text-slate-900 dark:text-white">Strategy</a>
-        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors text-slate-900 dark:text-white">Case Studies</a>
-        <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-portfolio-accent transition-colors text-slate-900 dark:text-white">Contact</a>
-        <button @click="openSettings" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
-          <Settings class="text-slate-900 dark:text-white" :size="20" />
-        </button>
-        <button @click="toggleTheme" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
-          <Sun v-if="settingsStore.isDarkMode" class="text-amber-400" :size="20" />
-          <Moon v-else class="text-blue-600" :size="20" />
-        </button>
-      </div>
-    </nav>
-
-    <main class="relative z-10 max-w-[1440px] mx-auto px-10">
-      
-      <!-- Hero -->
-      <section class="min-h-screen flex flex-col justify-center pt-20 pb-40 space-y-16">
-        <div class="space-y-6">
-          <Motion 
-            :initial="{ opacity: 0, y: 20 }"
-            :animate="{ opacity: 1, y: 0 }"
-            :transition="{ duration: 0.8 }"
-            class="inline-flex items-center space-x-2 text-[10px] font-black uppercase tracking-[0.4em] text-slate-500"
-          >
-            <span>Based in London / Available Worldwide</span>
-          </Motion>
-
-          <Motion 
-            :initial="{ opacity: 0, x: -50 }"
-            :animate="{ opacity: 1, x: 0 }"
-            :transition="{ duration: 1, delay: 0.2 }"
-            tag="h1"
-            class="text-[clamp(4rem,15vw,12rem)] font-display font-black leading-[0.8] tracking-tighter uppercase gradient-text"
-          >
-            Creative <br />
-            <span class="italic font-light">Architect</span>
-          </Motion>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-           <Motion 
-             :initial="{ opacity: 0 }"
-             :animate="{ opacity: 1 }"
-             :transition="{ duration: 1, delay: 0.8 }"
-             class="lg:col-span-4"
-           >
-              <p class="text-xl text-slate-400 leading-relaxed font-medium">
-                Designing technical excellence. Crafting high-fidelity digital systems for the next decade of innovation.
-              </p>
-           </Motion>
-           <div class="lg:col-span-8 flex justify-end">
-              <div class="flex items-center space-x-12">
-                 <div class="space-y-1">
-                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-500">Expertise</p>
-                    <p class="text-lg font-bold italic">Full-Stack UX</p>
-                 </div>
-                 <div class="space-y-1 border-l border-white/10 pl-12">
-                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-500">Currently</p>
-                    <p class="text-lg font-bold italic">Staff Engineer</p>
-                 </div>
-              </div>
-           </div>
-        </div>
-
-        <div class="absolute bottom-10 left-10 animate-bounce hidden md:block">
-           <ChevronDown class="text-slate-700" :size="32" />
-        </div>
-      </section>
-
-      <!-- Work Section -->
-      <section class="space-y-20 pb-40">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-10">
-          <div class="space-y-4">
-            <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter uppercase italic">Selected <span class="not-italic">Works</span></h2>
-            <p class="text-slate-500 font-medium">In-depth explorations into system design and engineering.</p>
-          </div>
-          
-          <div class="flex flex-wrap gap-2 p-1 bg-white/5 rounded-2xl border border-white/5">
-            <button 
-              v-for="cat in categories" 
-              :key="cat"
-              @click="store.setCategory(cat)"
-              class="px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all"
-              :class="store.activeCategory === cat ? 'bg-white text-black' : 'text-slate-500 hover:text-white'"
-            >
-              {{ cat }}
-            </button>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <Motion 
-            v-for="(project, idx) in filteredProjects" 
-            :key="project.id"
-            :initial="{ opacity: 0, scale: 0.95 }"
-            :animate="{ opacity: 1, scale: 1 }"
-            :transition="{ duration: 0.5, delay: idx * 0.1 }"
-            class="brutalist-card group"
-          >
-            <div class="h-80 relative bg-slate-900 overflow-hidden">
-               <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-               <div class="absolute inset-0 flex items-center justify-center text-slate-800 group-hover:text-portfolio-accent transition-colors duration-500">
-                  <component :is="project.icon" :size="120" stroke-width="0.5" />
-               </div>
-               <div class="absolute top-8 left-8 flex items-center space-x-2 bg-black/50 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10">
-                  <span class="text-[10px] font-black uppercase tracking-widest text-white">{{ project.stats }}</span>
-               </div>
-            </div>
-            <div class="p-10 space-y-6">
-               <div class="space-y-2">
-                  <div class="text-[10px] font-black uppercase tracking-[0.2em] text-portfolio-accent italic">{{ project.category }}</div>
-                  <h3 class="text-3xl font-display font-black uppercase tracking-tight group-hover:translate-x-2 transition-transform duration-500">{{ project.title }}</h3>
-               </div>
-               <p class="text-slate-400 text-sm leading-relaxed">{{ project.desc }}</p>
-               <button class="pt-6 flex items-center text-xs font-black uppercase tracking-widest group-hover:text-portfolio-accent transition-colors border-t border-white/5 w-full">
-                  Read Case Study <ArrowUpRight class="ml-auto" :size="16" />
-               </button>
-            </div>
-          </Motion>
-        </div>
-      </section>
-
-      <!-- Strategy Banner -->
-      <section class="py-40 border-y border-white/5">
-        <div class="max-w-3xl mx-auto text-center space-y-12">
-          <h3 class="text-3xl md:text-5xl font-display font-black leading-tight uppercase italic tracking-tighter">
-            "We don't build features. <br />
-            We engineer <span class="not-italic text-portfolio-accent">Value.</span>"
-          </h3>
-          <p class="text-slate-500 font-medium">My philosophy centers on the rigorous application of engineering principles to the fluid requirements of modern product design.</p>
-          <div class="flex justify-center">
-             <button class="px-10 py-4 bg-white text-black rounded-full font-black uppercase tracking-widest text-xs hover:bg-portfolio-accent hover:text-white transition-all">
-                Let's Talk Shop
-             </button>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer class="py-20 px-10">
-       <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-20 items-start">
-          <div class="md:col-span-4 space-y-8">
-             <div class="font-display font-black text-3xl uppercase tracking-tighter italic">M. Kazi</div>
-             <p class="text-slate-500 text-sm leading-relaxed max-w-xs font-medium italic">Available for technical leadership, systems consulting, and premium UI/UX implementations.</p>
-             <div class="flex items-center space-x-6 text-slate-500">
-                <Github class="hover:text-white transition-colors cursor-pointer" :size="20" />
-                <Linkedin class="hover:text-white transition-colors cursor-pointer" :size="20" />
-                <Twitter class="hover:text-white transition-colors cursor-pointer" :size="20" />
-             </div>
-          </div>
-
-          <div class="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-10 uppercase tracking-widest text-[10px] font-black">
-             <div class="space-y-6">
-                <p class="text-slate-400">Navigation</p>
-                <div class="flex flex-col gap-4">
-                   <a href="#" class="hover:text-portfolio-accent">Portfolio</a>
-                   <a href="#" class="hover:text-portfolio-accent">Dossier</a>
-                   <a href="#" class="hover:text-portfolio-accent">Archives</a>
-                </div>
-             </div>
-             <div class="space-y-6">
-                <p class="text-slate-400">Socials</p>
-                <div class="flex flex-col gap-4">
-                   <a href="#" class="hover:text-portfolio-accent">GitHub</a>
-                   <a href="#" class="hover:text-portfolio-accent">Polywork</a>
-                   <a href="#" class="hover:text-portfolio-accent">LinkedIn</a>
-                </div>
-             </div>
-             <div class="space-y-6">
-                <p class="text-slate-400">Office</p>
-                <p class="text-slate-600 font-medium italic">London, UK <br/> GMT+0</p>
-             </div>
-          </div>
-       </div>
-       <div class="max-w-[1440px] mx-auto pt-20 mt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-700 italic">Architecture by Staff Engineering</p>
-          <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-700">© 2026 M. Kazi</p>
-        </div>
-     </footer>
-
-     <SettingsPanel />
-   </div>
 </template>
 
 <style>
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-500 to-white;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #fff, #94a3b8, #fff);
 }
 </style>
