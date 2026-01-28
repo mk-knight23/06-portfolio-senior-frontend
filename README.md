@@ -1,60 +1,80 @@
-# portfolio-demo-website
+# Kazi Musharraf — Senior Frontend Developer
 
-Demo portfolio website showcasing portfolio capabilities and project previews.
+**Building Scalable Component Systems with Vue, React & TypeScript**
 
-Part of the MUSHARRAF KAZI portfolio ecosystem — AI Engineer & Indie Builder
-specializing in Agentic AI, Developer Tools, Multi-LLM Routing, and SaaS Automation.
+---
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-6366F1?style=for-the-badge&logo=github)](https://mk-knight23.github.io/06-portfolio-senior-frontend/)
+[![GitHub](https://img.shields.io/badge/Source-Code-181717?style=for-the-badge&logo=github)](https://github.com/mk-knight23/06-portfolio-senior-frontend)
 
 ---
 
 ## About
 
-A demonstration portfolio featuring previews and walkthroughs of selected projects,
-highlighting technical capabilities and product vision.
+Senior Frontend Developer specializing in Vue, React, TypeScript, and modern frontend architectures. Building scalable component systems and production-grade UI at Wipro while developing the **VIBE Ecosystem**.
+
+**Experience:** Project Engineer (TURBO) at Wipro (Jul 2022 – Present)
 
 ---
 
-## VIBE Ecosystem (Featured)
+## Features
 
-**Founder & AI Engineer**
-
-A multi-product AI developer platform:
-
-| Product | Description |
-|---------|-------------|
-| VIBE CLI | Multi-agent coding tool with TUI and LLM routing |
-| VIBE VS Code | AI IDE assistant with streaming chat |
-| VIBE Web | Documentation hub for the ecosystem |
-| VIBE Chat | AI website builder with generative agents |
+- **Resume & Cover Letter Sections** — Complete professional history and 3-6 month impact plan
+- **VIBE Ecosystem Showcase** — Multi-product AI developer platform overview
+- **Dark Theme Interface** — Modern sidebar navigation with indigo accents
+- **Contact & Social Links** — Direct access to email, phone, GitHub, and LinkedIn
 
 ---
 
-## Demo Projects
+## Tech Stack
 
-Preview available for:
-
-### Web Applications
-- Country Explorer, Recipe Finder, Meme Generator, Blog Platform
-
-### Developer Tools
-- Password Generator, Image Uploader, Firebase Utilities
-
-### Interactive
-- Mini-games collection, Aptitude calculator
+- **Frontend:** Vue 3, TypeScript
+- **Styling:** Tailwind CSS (dark theme)
+- **Icons:** Lucide Vue Next
+- **Build:** Vite
+- **Deployment:** GitHub Pages
 
 ---
 
-## Core Focus
+## Deployment
 
-- **Agentic AI** — Multi-agent systems, RAG, LLM orchestration
-- **Developer Tools** — CLI, VS Code extensions, automation
-- **SaaS Platforms** — Full-stack web applications
-- **Web Development** — React, Next.js, TypeScript
+| Platform | URL |
+|----------|-----|
+| **GitHub Pages** | [mk-knight23.github.io/06-portfolio-senior-frontend](https://mk-knight23.github.io/06-portfolio-senior-frontend/) |
 
 ---
 
-## Connect
+## Local Setup
 
-- **Email:** mk.knight970@gmail.com
-- **GitHub:** [@mk-knight23](https://github.com/mk-knight23)
-- **LinkedIn:** [kazi-musharraf](https://www.linkedin.com/in/kazi-musharraf-0674871a4)
+```bash
+# Clone the repository
+git clone https://github.com/mk-knight23/06-portfolio-senior-frontend.git
+
+# Navigate to project
+cd 06-portfolio-senior-frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
+
+## Contact
+
+- **Email:** [mk.knight970@gmail.com](mailto:mk.knight970@gmail.com)
+- **Phone:** +91 9765490536
+- **GitHub:** [mk-knight23](https://github.com/mk-knight23)
+- **LinkedIn:** [kazi-musharraf-0674871a4](https://www.linkedin.com/in/kazi-musharraf-0674871a4)
+- **Location:** Hyderabad, India
+
+---
+
+*Kazi Musharraf — Senior Frontend Developer — Part of 8-portfolio ecosystem*
+
+*Last Updated: January 2025*
