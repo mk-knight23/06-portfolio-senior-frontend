@@ -8,8 +8,10 @@ import {
     Mail,
     Github,
     Linkedin,
+    Phone,
     ChevronRight,
     CheckCircle2,
+    Check,
     Cpu,
     Layers,
     Zap,
@@ -82,6 +84,7 @@ const navItems = [
     { id: 'vibe', label: 'VIBE Ecosystem', icon: Box },
     { id: 'work', label: 'Projects', icon: Code2 },
     { id: 'skills', label: 'Skills', icon: Database },
+    { id: 'resume', label: 'Resume', icon: Check },
     { id: 'contact', label: 'Contact', icon: Server }
 ]
 
@@ -134,11 +137,11 @@ function setActiveSection(id: string) {
                 <div class="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white font-semibold">
-                            MK
+                            KM
                         </div>
                         <div>
-                            <p class="text-sm font-medium text-white">Musharraf Kazi</p>
-                            <p class="text-xs text-slate-500">AI Engineer</p>
+                            <p class="text-sm font-medium text-white">Kazi Musharraf</p>
+                            <p class="text-xs text-slate-500">Senior Frontend Developer</p>
                         </div>
                     </div>
                     <div class="flex gap-2">
@@ -381,6 +384,138 @@ function setActiveSection(id: string) {
                     </div>
                 </section>
 
+                <!-- Resume Section -->
+                <section id="resume" class="mb-12">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Check class="w-5 h-5 text-indigo-500" />
+                        Resume
+                    </h2>
+                    <p class="text-slate-400 mb-8">Senior Frontend Developer — Vue & Framework-Agnostic</p>
+
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <!-- Main Content -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <!-- Experience -->
+                            <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-white mb-4">Experience</h3>
+                                <div class="space-y-4">
+                                    <div class="pl-4 border-l-2 border-indigo-500">
+                                        <div class="flex items-start justify-between mb-2">
+                                            <h4 class="text-base font-semibold text-white">Project Engineer (TURBO)</h4>
+                                            <span class="text-xs text-slate-500">Jul 2022 – Present</span>
+                                        </div>
+                                        <p class="text-indigo-400 text-sm mb-1">Wipro</p>
+                                        <p class="text-slate-400 text-sm">
+                                            Building enterprise frontend applications with Vue 3, React, and TypeScript.
+                                            Specialized in component architecture, state management, and design systems.
+                                            Delivered 80+ projects with focus on accessibility and performance.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Education -->
+                            <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-white mb-4">Education</h3>
+                                <div class="pl-4 border-l-2 border-slate-600">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <h4 class="text-base font-semibold text-white">B.Tech Computer Science & Engineering</h4>
+                                        <span class="text-xs text-slate-500">2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="space-y-6">
+                            <!-- Tech Stack -->
+                            <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-white mb-4">Tech Stack</h3>
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">Frontend</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span v-for="tech in ['Vue 3', 'React', 'TypeScript', 'Tailwind', 'Vite']" :key="tech"
+                                                  class="px-2 py-1 bg-indigo-500/10 text-indigo-300 rounded text-xs">
+                                                {{ tech }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">Core</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span v-for="tech in ['Node.js', 'APIs', 'Git', 'CI/CD', 'Testing']" :key="tech"
+                                                  class="px-2 py-1 bg-slate-700 text-slate-300 rounded text-xs">
+                                                {{ tech }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Connect -->
+                            <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-white mb-4">Connect</h3>
+                                <div class="space-y-3">
+                                    <a href="https://github.com/mk-knight23" target="_blank" rel="noopener"
+                                       class="flex items-center gap-2 text-slate-400 hover:text-indigo-400 transition-colors">
+                                        <Github class="w-4 h-4" />
+                                        <span class="text-sm">github.com/mk-knight23</span>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/kazi-musharraf-0674871a4" target="_blank" rel="noopener"
+                                       class="flex items-center gap-2 text-slate-400 hover:text-indigo-400 transition-colors">
+                                        <Linkedin class="w-4 h-4" />
+                                        <span class="text-sm">linkedin.com/in/kazi-musharraf</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- What I'll Build Section -->
+                <section class="mb-12">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Activity class="w-5 h-5 text-indigo-500" />
+                        What I'll Work On
+                    </h2>
+                    <p class="text-slate-400 mb-8">First 3–6 months as your Senior Frontend Developer</p>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+                            <h3 class="text-base font-semibold text-white mb-2">Component Architecture</h3>
+                            <p class="text-slate-400 text-sm">
+                                Audit and restructure your component library for reusability and maintainability.
+                                Establish prop patterns, composition strategies, and documentation standards.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+                            <h3 class="text-base font-semibold text-white mb-2">Performance & DX</h3>
+                            <p class="text-slate-400 text-sm">
+                                Optimize bundle sizes, implement code splitting, and improve Core Web Vitals.
+                                Set up developer tooling that improves team velocity and code quality.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+                            <h3 class="text-base font-semibold text-white mb-2">Framework Migration</h3>
+                            <p class="text-slate-400 text-sm">
+                                Lead Vue to React migrations or build framework-agnostic solutions.
+                                Ensure smooth transitions with minimal disruption to existing features.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+                            <h3 class="text-base font-semibold text-white mb-2">Testing & Quality</h3>
+                            <p class="text-slate-400 text-sm">
+                                Establish comprehensive testing strategy with unit, integration, and E2E tests.
+                                Set up CI/CD pipelines that catch issues before they reach production.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Contact Section -->
                 <section id="contact" class="mb-12">
                     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
@@ -395,7 +530,7 @@ function setActiveSection(id: string) {
                     <div class="flex flex-wrap gap-4 mb-6">
                         <span class="px-4 py-2 bg-[#1e293b] border border-slate-700 rounded-lg text-sm">
                             <span class="text-slate-500">Location:</span>
-                            <span class="text-white ml-2">India</span>
+                            <span class="text-white ml-2">Hyderabad, India</span>
                         </span>
                         <span class="px-4 py-2 bg-[#1e293b] border border-slate-700 rounded-lg text-sm">
                             <span class="text-slate-500">Available:</span>
@@ -407,6 +542,10 @@ function setActiveSection(id: string) {
                         <a href="mailto:mk.knight970@gmail.com"
                            class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors">
                             <Mail class="w-5 h-5" /> Email
+                        </a>
+                        <a href="tel:+919765490536"
+                           class="inline-flex items-center gap-2 px-6 py-3 bg-[#1e293b] border border-slate-700 hover:bg-slate-700 text-white rounded-lg font-medium transition-colors">
+                            <Phone class="w-5 h-5" /> Call
                         </a>
                         <a href="https://github.com/mk-knight23" target="_blank" rel="noopener noreferrer"
                            class="inline-flex items-center gap-2 px-6 py-3 bg-[#1e293b] border border-slate-700 hover:bg-slate-700 text-white rounded-lg font-medium transition-colors">
@@ -422,8 +561,8 @@ function setActiveSection(id: string) {
                 <!-- Footer -->
                 <footer class="py-6 border-t border-slate-700">
                     <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-                        <p>&copy; 2025 MUSHARRAF KAZI. All rights reserved.</p>
-                        <p>Part of a 60-project portfolio ecosystem</p>
+                        <p>&copy; 2025 Kazi Musharraf. All rights reserved.</p>
+                        <p>Senior Frontend Developer — Hyderabad, India</p>
                     </div>
                 </footer>
             </div>
