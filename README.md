@@ -36,45 +36,12 @@ Senior Frontend Developer specializing in Vue, React, TypeScript, and modern fro
 
 ---
 
-## Deployment
+### Live Portfolio
 
-| Platform | URL |
-|----------|-----|
-| **GitHub Pages** | [mk-knight23.github.io/06-portfolio-senior-frontend](https://mk-knight23.github.io/06-portfolio-senior-frontend/) |
-
----
-
-## Local Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/mk-knight23/06-portfolio-senior-frontend.git
-
-# Navigate to project
-cd 06-portfolio-senior-frontend
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-```
+- GitHub Pages: https://mk-knight23.github.io/06-portfolio-senior-frontend/
+- Vercel: https://06-portfolio-senior-frontend.vercel.app
+- Netlify: (contact for access)
 
 ---
-
-## Contact
-
-- **Email:** [mk.knight970@gmail.com](mailto:mk.knight970@gmail.com)
-- **Phone:** +91 9765490536
-- **GitHub:** [mk-knight23](https://github.com/mk-knight23)
-- **LinkedIn:** [kazi-musharraf-0674871a4](https://www.linkedin.com/in/kazi-musharraf-0674871a4)
-- **Location:** Hyderabad, India
-
----
-
-*Kazi Musharraf — Senior Frontend Developer — Part of a 60-project portfolio ecosystem*
 
 *Last Updated: January 2025*
