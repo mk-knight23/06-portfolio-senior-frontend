@@ -75,6 +75,6 @@ npm run build
 
 ---
 
-*Kazi Musharraf — Senior Frontend Developer — Part of 8-portfolio ecosystem*
+*Kazi Musharraf — Senior Frontend Developer — Part of a 60-project portfolio ecosystem*
 
 *Last Updated: January 2025*

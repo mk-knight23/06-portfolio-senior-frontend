@@ -1,7 +1,13 @@
 {
-  "name": "portfolio-demo",
+  "name": "06-portfolio-senior-frontend",
   "private": true,
   "version": "0.0.0",
+  "description": "Kazi Musharraf — Senior Frontend Developer Portfolio. Building scalable component systems with Vue, React, and TypeScript.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-knight23/06-portfolio-senior-frontend.git"
+  },
+  "homepage": "https://mk-knight23.github.io/06-portfolio-senior-frontend/",
   "type": "module",
   "scripts": {
     "dev": "vite",

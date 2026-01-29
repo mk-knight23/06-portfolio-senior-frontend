@@ -168,7 +168,7 @@ function setActiveSection(id: string) {
                 <!-- Header -->
                 <header class="mb-8">
                     <h1 class="text-3xl font-bold text-white mb-2">Portfolio Dashboard</h1>
-                    <p class="text-slate-400">AI Engineer & Indie Builder</p>
+                    <p class="text-slate-400">Senior Frontend Developer</p>
                 </header>
 
                 <!-- Stats Grid -->
