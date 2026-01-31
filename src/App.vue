@@ -26,32 +26,39 @@ import {
 // VIBE Ecosystem Products
 const vibeProducts = [
     {
-        name: 'VIBE CLI',
-        tagline: 'Multi-agent AI coding tool',
-        description: 'Single-command TUI, multi-LLM router, execution modes, security-first approvals.',
-        icon: Terminal,
-        status: 'In Development'
+        name: 'AI-VIBE-WebBuilder',
+        tagline: 'Generative site architect',
+        description: 'Building framework-agnostic component systems for production-ready, agent-driven assembly.',
+        icon: Globe,
+        status: 'Planned'
     },
     {
-        name: 'VIBE VS Code',
-        tagline: 'Multi-agent IDE assistant',
-        description: 'CLI parity, state-machine orchestration, real-time streaming chat.',
+        name: 'AI-VIBE-ChatWeb',
+        tagline: 'Conversational interface',
+        description: 'Real-time streaming and shared state-machines for human-agent collaboration.',
+        icon: MessageSquare,
+        status: 'Live'
+    },
+    {
+        name: 'AI-VIBE-VSCode',
+        tagline: 'IDE-grade agent toolsets',
+        description: 'High-performance IDE integration with IDE-to-cloud synchronization services.',
         icon: Code2,
         status: 'Planned'
     },
     {
-        name: 'VIBE Web',
-        tagline: 'Documentation hub',
-        description: 'Documentation and onboarding hub for the entire ecosystem.',
-        icon: Globe,
-        status: 'Live'
+        name: 'AI-VIBE-CLI',
+        tagline: 'Multi-agent AI interface',
+        description: 'Single-command TUI, multi-LLM router, and security-first command execution.',
+        icon: Terminal,
+        status: 'In Development'
     },
     {
-        name: 'VIBE Chat',
-        tagline: 'AI website builder',
-        description: 'AI web app & website builder powered by generative agents.',
-        icon: MessageSquare,
-        status: 'Planned'
+        name: 'AI-VIBE-Automation',
+        tagline: 'Workflow orchestration',
+        description: 'Background agent synchronization and cross-product state management.',
+        icon: Zap,
+        status: 'In Development'
     }
 ]
 
@@ -84,7 +91,8 @@ const navItems = [
     { id: 'vibe', label: 'VIBE Ecosystem', icon: Box },
     { id: 'work', label: 'Projects', icon: Code2 },
     { id: 'skills', label: 'Skills', icon: Database },
-    { id: 'resume', label: 'Resume', icon: Check },
+    { id: 'decisions', label: 'Design Decisions', icon: Check },
+    { id: 'resume', label: 'Resume', icon: CheckCircle2 },
     { id: 'contact', label: 'Contact', icon: Server }
 ]
 
@@ -186,8 +194,8 @@ function setActiveSection(id: string) {
                             <span class="text-slate-500 text-sm">Products</span>
                             <Box class="w-5 h-5 text-green-500" />
                         </div>
-                        <div class="text-3xl font-bold text-white">4</div>
-                        <div class="text-xs text-slate-500 mt-1">VIBE Ecosystem</div>
+                        <div class="text-3xl font-bold text-white">05</div>
+                        <div class="text-xs text-slate-500 mt-1">AI-VIBE-ECOSYSTEM v2.0</div>
                     </div>
                     <div class="bg-[#1e293b] border border-slate-700 rounded-xl p-5">
                         <div class="flex items-center justify-between mb-2">
@@ -224,9 +232,9 @@ function setActiveSection(id: string) {
                                     <strong class="text-white"> SaaS Automation</strong>.
                                 </p>
                                 <p class="text-slate-400 leading-relaxed">
-                                    Building the <span class="text-indigo-400">VIBE Ecosystem</span> — a multi-product AI developer
-                                    platform focused on AI-powered coding workflows, multi-agent orchestration, and
-                                    production-grade developer tooling.
+                                    Building the <span class="text-indigo-400">AI-VIBE-ECOSYSTEM v2.0</span> — a multi-product AI developer
+                                    platform focused on agent-driven assembly, multi-agent orchestration, and
+                                    production-grade developer tooling for the future of work.
                                 </p>
                             </div>
                             <div>
@@ -258,7 +266,7 @@ function setActiveSection(id: string) {
                 <section id="vibe" class="mb-12">
                     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
                         <Box class="w-5 h-5 text-indigo-500" />
-                        VIBE Ecosystem
+                        AI-VIBE-ECOSYSTEM v2.0
                     </h2>
                     <p class="text-slate-400 mb-6">Flagship project — A multi-product AI developer platform</p>
 
@@ -512,6 +520,63 @@ function setActiveSection(id: string) {
                                 Establish comprehensive testing strategy with unit, integration, and E2E tests.
                                 Set up CI/CD pipelines that catch issues before they reach production.
                             </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- vNext: Design Decisions Section (Senior Engineering Practice) -->
+                <section id="decisions" class="mb-12">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Check class="w-5 h-5 text-indigo-500" />
+                        Design Decisions
+                    </h2>
+                    <p class="text-slate-400 mb-6 max-w-2xl">
+                        Senior engineers document tradeoffs. Here are key technical decisions and their rationales.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-slate-800/50 rounded-lg p-5 border border-slate-700">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">FRAMEWORK</span>
+                                <h3 class="font-semibold text-white">Vue 3 Composition API</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-3">Chose Composition API over Options API for better TypeScript inference and composability.</p>
+                            <div class="text-xs text-slate-500">
+                                <span class="font-bold text-slate-400">Tradeoff:</span> Steeper learning curve, but better for large-scale apps and code reuse.
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/50 rounded-lg p-5 border border-slate-700">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">STATE</span>
+                                <h3 class="font-semibold text-white">Pinia over Vuex</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-3">Pinia provides better TypeScript support, simpler API, and devtools integration.</p>
+                            <div class="text-xs text-slate-500">
+                                <span class="font-bold text-slate-400">Tradeoff:</span> Newer ecosystem, fewer community patterns vs Vuex maturity.
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/50 rounded-lg p-5 border border-slate-700">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">MONOREPO</span>
+                                <h3 class="font-semibold text-white">VIBE Monorepo Strategy</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-3">Planning monorepo for VIBE to share types, utilities, and LLM integrations across products.</p>
+                            <div class="text-xs text-slate-500">
+                                <span class="font-bold text-slate-400">Tradeoff:</span> Increased build complexity vs unified versioning and code sharing.
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/50 rounded-lg p-5 border border-slate-700">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">AI ARCH</span>
+                                <h3 class="font-semibold text-white">H-RAG Architecture</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-3">Hierarchical RAG for better context retrieval and multi-document reasoning.</p>
+                            <div class="text-xs text-slate-500">
+                                <span class="font-bold text-slate-400">Tradeoff:</span> More complex vs simpler vector-only retrieval. Worth it for accuracy.
+                            </div>
                         </div>
                     </div>
                 </section>
