@@ -1,50 +1,675 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary Meta Tags -->
-  <title>Kazi Musharraf — Senior Frontend Systems Lead (AI-VIBE-ECOSYSTEM v2.0)</title>
-  <meta name="title" content="Kazi Musharraf — Senior Frontend Systems Lead (AI-VIBE-ECOSYSTEM v2.0)">
-  <meta name="description"
-    content="Senior Frontend Systems Lead for the AI-VIBE-ECOSYSTEM v2.0. Focusing on high-performance component architectures, global state systems, and accessible AI interfaces.">
-  <meta name="keywords"
-    content="AI-VIBE-ECOSYSTEM v2.0, AI-VIBE-WebBuilder, senior frontend, vue, react, architecture, kazi musharraf">
+  <title>Kazi Musharraf — Senior Frontend Architect</title>
+  <meta name="title" content="Kazi Musharraf — Senior Frontend Architect">
+  <meta name="description" content="Senior Frontend Architect specializing in design systems, accessibility, and performance. Building scalable component architectures and accessible interfaces.">
+  <meta name="keywords" content="senior frontend, design systems, accessibility, performance, react, typescript, component architecture">
   <meta name="author" content="Kazi Musharraf">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mk-knight23.github.io/06-portfolio-senior-frontend/">
-  <meta property="og:title" content="Kazi Musharraf — Senior Frontend Systems Lead (AI-VIBE-ECOSYSTEM v2.0)">
-  <meta property="og:description"
-    content="Engineering high-performance frontend systems and AI interfaces within the AI-VIBE-ECOSYSTEM v2.0.">
+  <meta property="og:title" content="Kazi Musharraf — Senior Frontend Architect">
+  <meta property="og:description" content="Senior Frontend Architect specializing in design systems, accessibility, and performance.">
   <meta property="og:image" content="https://mk-knight23.github.io/06-portfolio-senior-frontend/og-image.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://mk-knight23.github.io/06-portfolio-senior-frontend/">
-  <meta name="twitter:title" content="Kazi Musharraf — Senior Frontend Systems Lead (AI-VIBE-ECOSYSTEM v2.0)">
-  <meta name="twitter:description"
-    content="Developing durable, scalable frontend architectures for the next generation of AI-native tools.">
+  <meta name="twitter:title" content="Kazi Musharraf — Senior Frontend Architect">
+  <meta name="twitter:description" content="Senior Frontend Architect specializing in design systems, accessibility, and performance.">
 
-  <!-- Favicon - Code Braces Icon for Senior Frontend -->
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='20' width='80' height='60' rx='8' fill='%231e293b' stroke='%236366f1' stroke-width='3'/><text x='25' y='62' font-family='monospace' font-size='36' fill='%236366f1'>&lt;/&gt;</text></svg>">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='30' width='80' height='40' fill='none' stroke='%23e30613' stroke-width='4'/><text x='50' y='58' font-family='Helvetica, Arial, sans-serif' font-size='28' font-weight='bold' text-anchor='middle' fill='%23000'>KM</text></svg>">
 
   <!-- Theme Color -->
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#ffffff">
 
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Inter Font (Swiss-inspired) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-mark">KM</span>
+        <span class="nav-logo-text">Kazi Musharraf</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#featured" class="nav-link">Featured</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link nav-link--cta">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
 
-<body class="bg-[#0f172a]">
-  <div id="app"></div>
-  <script type="module" src="/src/main.ts"></script>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Senior Frontend Architect</div>
+          <h1 class="hero-title">
+            Design Systems.<br>
+            Accessibility.<br>
+            Performance.
+          </h1>
+          <p class="hero-description">
+            Building scalable component architectures and accessible interfaces
+            for modern web applications. 60+ projects across design systems,
+            editorial layouts, and professional showcases.
+          </p>
+          <div class="hero-actions">
+            <a href="#featured" class="btn btn--primary">View Featured Work</a>
+            <a href="#contact" class="btn btn--secondary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">60+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Portfolios</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">16</span>
+            <span class="stat-label">Web Apps</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">WCAG</span>
+            <span class="stat-label">AA Compliant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-accent"></div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="section section--about">
+    <div class="container">
+      <div class="section-grid">
+        <div class="section-header">
+          <span class="section-eyebrow">01 — About</span>
+          <h2 class="section-title">Frontend Architecture<br>for Scale</h2>
+        </div>
+        <div class="section-content">
+          <p class="lead">
+            I am a Senior Frontend Architect at Wipro, specializing in design systems,
+            component architectures, and accessible interfaces that scale.
+          </p>
+          <p>
+            My work focuses on the intersection of design and engineering—building
+            component libraries that empower teams, implementing accessibility standards
+            that include all users, and optimizing performance for global audiences.
+          </p>
+          <p>
+            Through 60+ projects, I have developed expertise in design systems,
+            editorial layouts, and professional showcases. Each project demonstrates
+            a commitment to clean code, semantic HTML, and user-centered design.
+          </p>
+          <div class="about-details">
+            <div class="detail-item">
+              <span class="detail-label">Location</span>
+              <span class="detail-value">Hyderabad, India</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Experience</span>
+              <span class="detail-value">Full-stack & Frontend</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Focus</span>
+              <span class="detail-value">Design Systems, A11y</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Availability</span>
+              <span class="detail-value detail-value--available">Open to Opportunities</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section id="featured" class="section section--featured">
+    <div class="container">
+      <div class="section-header section-header--centered">
+        <span class="section-eyebrow">02 — Featured Work</span>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">
+          Eight projects that demonstrate expertise in design systems,
+          editorial layouts, and professional frontend architecture.
+        </p>
+      </div>
+
+      <div class="featured-grid">
+        <!-- Featured Project 1: Portfolio Self -->
+        <article class="featured-card featured-card--large">
+          <div class="featured-image">
+            <div class="placeholder-image placeholder-image--portfolio">
+              <span class="placeholder-text">06 Portfolio</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="featured-category">Design System</span>
+              <span class="featured-year">2025</span>
+            </div>
+            <h3 class="featured-title">Senior Frontend Portfolio</h3>
+            <p class="featured-description">
+              This portfolio itself—built with Swiss Minimal principles,
+              featuring grid-based layouts, typographic precision, and
+              accessible navigation. A demonstration of design system thinking.
+            </p>
+            <ul class="featured-tech">
+              <li>HTML5</li>
+              <li>CSS Grid</li>
+              <li>Vanilla JS</li>
+              <li>WCAG AA</li>
+            </ul>
+            <div class="featured-actions">
+              <a href="#" class="link-arrow" aria-current="page">Current Page</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured Project 2: Editorial Blog -->
+        <article class="featured-card">
+          <div class="featured-image">
+            <div class="placeholder-image placeholder-image--editorial">
+              <span class="placeholder-text">12 Editorial</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="featured-category">Editorial</span>
+              <span class="featured-year">2024</span>
+            </div>
+            <h3 class="featured-title">Editorial Blog Platform</h3>
+            <p class="featured-description">
+              Typography-first blog platform with reading time estimation,
+              progressive image loading, and print-optimized layouts.
+            </p>
+            <ul class="featured-tech">
+              <li>React</li>
+              <li>Typography.js</li>
+              <li>MDX</li>
+            </ul>
+            <div class="featured-actions">
+              <a href="https://mk-knight23.github.io/web-editorial-blog/" class="link-arrow" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured Project 3: Professional Showcase -->
+        <article class="featured-card">
+          <div class="featured-image">
+            <div class="placeholder-image placeholder-image--showcase">
+              <span class="placeholder-text">22 Showcase</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="featured-category">Professional</span>
+              <span class="featured-year">2024</span>
+            </div>
+            <h3 class="featured-title">Professional Showcase</h3>
+            <p class="featured-description">
+              Corporate portfolio template with case study layouts,
+              client testimonials, and service-oriented navigation.
+            </p>
+            <ul class="featured-tech">
+              <li>Vue 3</li>
+              <li>Tailwind</li>
+              <li>GSAP</li>
+            </ul>
+            <div class="featured-actions">
+              <a href="https://mk-knight23.github.io/web-professional-showcase/" class="link-arrow" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured Project 4: Editorial Layouts -->
+        <article class="featured-card">
+          <div class="featured-image">
+            <div class="placeholder-image placeholder-image--layouts">
+              <span class="placeholder-text">16 Layouts</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="featured-category">Layout System</span>
+              <span class="featured-year">2024</span>
+            </div>
+            <h3 class="featured-title">Editorial Layouts</h3>
+            <p class="featured-description">
+              Experimental CSS Grid and Flexbox layouts for magazine-style
+              editorial content with asymmetric compositions.
+            </p>
+            <ul class="featured-tech">
+              <li>CSS Grid</li>
+              <li>Flexbox</li>
+              <li>Subgrid</li>
+            </ul>
+            <div class="featured-actions">
+              <a href="https://mk-knight23.github.io/web-editorial-layouts/" class="link-arrow" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured Project 5: Gatsby Blog -->
+        <article class="featured-card">
+          <div class="featured-image">
+            <div class="placeholder-image placeholder-image--gatsby">
+              <span class="placeholder-text">54 Gatsby</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="featured-category">Starter</span>
+              <span class="featured-year">2024</span>
+            </div>
+            <h3 class="featured-title">Gatsby Blog Starter</h3>
+            <p class="featured-description">
+              Performance-optimized blog starter with GraphQL data layer,
+              image optimization, and static site generation.
+            </p>
+            <ul class="featured-tech">
+              <li>Gatsby</li>
+              <li>GraphQL</li>
+              <li>Netlify CMS</li>
+            </ul>
+            <div class="featured-actions">
+              <a href="https://github.com/mk-knight23/starter-gatsby-blog" class="link-arrow" target="_blank" rel="noopener">View Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured Project 6: Hugo Blog -->
+        <article class="featured-card">
+          <div class="featured-image">
+            <div class="placeholder-image placeholder-image--hugo">
+              <span class="placeholder-text">52 Hugo</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="featured-category">Starter</span>
+              <span class="featured-year">2024</span>
+            </div>
+            <h3 class="featured-title">Hugo Blog Starter</h3>
+            <p class="featured-description">
+              Blazing-fast static site built with Hugo, featuring
+              taxonomy organization, RSS feeds, and multilingual support.
+            </p>
+            <ul class="featured-tech">
+              <li>Hugo</li>
+              <li>Go Templates</li>
+              <li>Markdown</li>
+            </ul>
+            <div class="featured-actions">
+              <a href="https://github.com/mk-knight23/starter-hugo-blog" class="link-arrow" target="_blank" rel="noopener">View Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured Project 7: Brutalist Content -->
+        <article class="featured-card">
+          <div class="featured-image">
+            <div class="placeholder-image placeholder-image--brutalist">
+              <span class="placeholder-text">13 Brutalist</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="featured-category">Experimental</span>
+              <span class="featured-year">2024</span>
+            </div>
+            <h3 class="featured-title">Brutalist Content</h3>
+            <p class="featured-description">
+              Raw, unpolished web aesthetic exploring the boundaries of
+              conventional design with bold typography and stark contrasts.
+            </p>
+            <ul class="featured-tech">
+              <li>HTML5</li>
+              <li>CSS</li>
+              <li>Raw Aesthetic</li>
+            </ul>
+            <div class="featured-actions">
+              <a href="https://mk-knight23.github.io/web-brutalist-content/" class="link-arrow" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured Project 8: Luxury Boutique -->
+        <article class="featured-card">
+          <div class="featured-image">
+            <div class="placeholder-image placeholder-image--luxury">
+              <span class="placeholder-text">15 Luxury</span>
+            </div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="featured-category">E-Commerce</span>
+              <span class="featured-year">2024</span>
+            </div>
+            <h3 class="featured-title">Luxury Boutique</h3>
+            <p class="featured-description">
+              High-end e-commerce experience with elegant animations,
+              product galleries, and seamless checkout flows.
+            </p>
+            <ul class="featured-tech">
+              <li>React</li>
+              <li>Framer Motion</li>
+              <li>Stripe</li>
+            </ul>
+            <div class="featured-actions">
+              <a href="https://mk-knight23.github.io/web-luxury-boutique/" class="link-arrow" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Projects Section -->
+  <section id="projects" class="section section--projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">03 — All Projects</span>
+        <h2 class="section-title">Complete Archive</h2>
+        <p class="section-subtitle">
+          60 projects across portfolios, web apps, games, tools, and starters.
+          Each represents a specific skill, experiment, or solution.
+        </p>
+      </div>
+
+      <div class="projects-filter">
+        <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="portfolios">Portfolios</button>
+        <button class="filter-btn" data-filter="web">Web Apps</button>
+        <button class="filter-btn" data-filter="games">Games</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+        <button class="filter-btn" data-filter="starters">Starters</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+        <!-- Projects will be populated by JavaScript -->
+      </div>
+
+      <div class="projects-more">
+        <a href="https://github.com/mk-knight23?tab=repositories" class="btn btn--secondary" target="_blank" rel="noopener">
+          View All on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section section--skills">
+    <div class="container">
+      <div class="section-grid">
+        <div class="section-header">
+          <span class="section-eyebrow">04 — Expertise</span>
+          <h2 class="section-title">Skills &<br>Capabilities</h2>
+        </div>
+        <div class="skills-content">
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3 class="skill-category-title">Design Systems</h3>
+              <ul class="skill-list">
+                <li>Component Architecture</li>
+                <li>Design Tokens</li>
+                <li>Pattern Libraries</li>
+                <li>Style Guides</li>
+                <li>Atomic Design</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category-title">Accessibility</h3>
+              <ul class="skill-list">
+                <li>WCAG 2.1 AA/AAA</li>
+                <li>ARIA Patterns</li>
+                <li>Screen Readers</li>
+                <li>Keyboard Navigation</li>
+                <li>Semantic HTML</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category-title">Performance</h3>
+              <ul class="skill-list">
+                <li>Core Web Vitals</li>
+                <li>Lazy Loading</li>
+                <li>Code Splitting</li>
+                <li>Bundle Optimization</li>
+                <li>CDN Strategy</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category-title">Frontend Stack</h3>
+              <ul class="skill-list">
+                <li>React & Vue</li>
+                <li>TypeScript</li>
+                <li>CSS Grid & Flexbox</li>
+                <li>Tailwind CSS</li>
+                <li>Vite & Webpack</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category-title">Architecture</h3>
+              <ul class="skill-list">
+                <li>Micro-frontends</li>
+                <li>Module Federation</li>
+                <li>State Management</li>
+                <li>API Design</li>
+                <li>Monorepos</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category-title">Testing & Quality</h3>
+              <ul class="skill-list">
+                <li>Unit Testing</li>
+                <li>Integration Testing</li>
+                <li>E2E Testing</li>
+                <li>Visual Regression</li>
+                <li>CI/CD Pipelines</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="section section--resume">
+    <div class="container">
+      <div class="section-header section-header--centered">
+        <span class="section-eyebrow">05 — Experience</span>
+        <h2 class="section-title">Resume</h2>
+      </div>
+
+      <div class="resume-grid">
+        <div class="resume-main">
+          <div class="resume-section">
+            <h3 class="resume-section-title">Work Experience</h3>
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div class="resume-item-title">Project Engineer (TURBO)</div>
+                <div class="resume-item-company">Wipro</div>
+                <div class="resume-item-date">July 2022 — Present</div>
+              </div>
+              <p class="resume-item-description">
+                Building enterprise frontend applications with Vue 3, React, and TypeScript.
+                Specialized in component architecture, state management, and design systems.
+                Delivered 80+ projects with focus on accessibility and performance.
+              </p>
+              <ul class="resume-item-highlights">
+                <li>Led frontend architecture decisions for multiple client projects</li>
+                <li>Established design system standards and component libraries</li>
+                <li>Implemented accessibility compliance (WCAG AA) across applications</li>
+                <li>Optimized Core Web Vitals achieving 90+ Lighthouse scores</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h3 class="resume-section-title">Education</h3>
+            <div class="resume-item">
+              <div class="resume-item-header">
+                <div class="resume-item-title">B.Tech Computer Science & Engineering</div>
+                <div class="resume-item-company">University</div>
+                <div class="resume-item-date">2018 — 2022</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-sidebar">
+          <div class="resume-section">
+            <h3 class="resume-section-title">Tech Stack</h3>
+            <div class="tech-stack">
+              <div class="tech-group">
+                <span class="tech-group-label">Frontend</span>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Vue 3</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Tailwind</span>
+                  <span class="tech-tag">Vite</span>
+                </div>
+              </div>
+              <div class="tech-group">
+                <span class="tech-group-label">Design</span>
+                <div class="tech-tags">
+                  <span class="tech-tag">Figma</span>
+                  <span class="tech-tag">Storybook</span>
+                  <span class="tech-tag">Design Tokens</span>
+                </div>
+              </div>
+              <div class="tech-group">
+                <span class="tech-group-label">Testing</span>
+                <div class="tech-tags">
+                  <span class="tech-tag">Jest</span>
+                  <span class="tech-tag">Cypress</span>
+                  <span class="tech-tag">Playwright</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h3 class="resume-section-title">Certifications</h3>
+            <ul class="cert-list">
+              <li>WCAG Accessibility Specialist</li>
+              <li>Google Mobile Web Specialist</li>
+              <li>AWS Cloud Practitioner</li>
+            </ul>
+          </div>
+
+          <div class="resume-actions">
+            <a href="#" class="btn btn--primary btn--full" onclick="window.print(); return false;">
+              Print / Save PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section section--contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-content">
+          <span class="section-eyebrow">06 — Contact</span>
+          <h2 class="section-title">Let's Build<br>Together</h2>
+          <p class="contact-description">
+            Open to opportunities in design systems, accessibility consulting,
+            and senior frontend architecture roles. Remote or hybrid.
+          </p>
+          <div class="contact-details">
+            <a href="mailto:mk.knight970@gmail.com" class="contact-link">
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">mk.knight970@gmail.com</span>
+            </a>
+            <a href="tel:+919765490536" class="contact-link">
+              <span class="contact-link-label">Phone</span>
+              <span class="contact-link-value">+91 97654 90536</span>
+            </a>
+            <div class="contact-link">
+              <span class="contact-link-label">Location</span>
+              <span class="contact-link-value">Hyderabad, India</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:mk.knight970@gmail.com" class="btn btn--primary btn--large">
+            Send Email
+          </a>
+          <div class="contact-social">
+            <a href="https://github.com/mk-knight23" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/kazi-musharraf-0674871a4" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-accent"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">KM</span>
+          <p class="footer-tagline">Senior Frontend Architect</p>
+        </div>
+        <div class="footer-nav">
+          <a href="#about">About</a>
+          <a href="#featured">Featured</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-meta">
+          <p>Designed with Swiss Minimal principles</p>
+          <p>&copy; 2025 Kazi Musharraf. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
-
 </html>

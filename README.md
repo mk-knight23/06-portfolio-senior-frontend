@@ -1,5 +1,11 @@
 # Kazi Musharraf — Senior Frontend Developer
 
+## 🚀 Live Demo
+
+This portfolio is deployed to multiple platforms:
+
+
+
 **Building Scalable Component Systems with Vue, React & TypeScript**
 
 ---
