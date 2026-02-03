@@ -33,3 +33,5 @@ test-results/
 
 # Deployment logs
 .claude/workflows/*.txt
+
+.env
