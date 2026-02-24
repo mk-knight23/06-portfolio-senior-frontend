@@ -1,80 +1,88 @@
-# Kazi Musharraf — Senior Frontend Developer
+# 06 Portfolio Senior Frontend — Kazi Musharraf
 
-**Building Scalable Component Systems with Vue, React & TypeScript**
+> **Swiss minimal portfolio showcasing component architecture and design systems.**
+> Built for enterprise teams and design system engineers.
 
----
-
-[![Live Demo](https://img.shields.io/badge/Live-Demo-6366F1?style=for-the-badge&logo=github)](https://mk-knight23.github.io/06-portfolio-senior-frontend/)
+[![Live Site](https://img.shields.io/badge/Live%20Site-Senior%20Frontend-e11d48?style=for-the-badge&logo=firefox&logoColor=white)](https://mk-knight-senior-frontend.web.app)
 [![GitHub](https://img.shields.io/badge/Source-Code-181717?style=for-the-badge&logo=github)](https://github.com/mk-knight23/06-portfolio-senior-frontend)
+[![Ecosystem](https://img.shields.io/badge/60%20Projects-Ecosystem-10b981?style=for-the-badge)](https://www.mkazi.live)
 
 ---
 
-## About
+## What Is This?
 
-Senior Frontend Developer specializing in Vue, React, TypeScript, and modern frontend architectures. Building scalable component systems and production-grade UI at Wipro while developing the **VIBE Ecosystem**.
+This is **Portfolio #06 — Senior Frontend**, a Swiss minimal portfolio designed for enterprise teams. Built with Vue 3 and TypeScript, it showcases my expertise in component architecture, design systems, and scalable frontend patterns.
 
-**Experience:** Project Engineer (TURBO) at Wipro (Jul 2022 – Present)
+One of **eight specialized portfolio experiences**.
 
 ---
 
-## Features
+## The Story: From Components to Systems
 
-- **Resume & Cover Letter Sections** — Complete professional history and 3-6 month impact plan
-- **VIBE Ecosystem Showcase** — Multi-product AI developer platform overview
-- **Dark Theme Interface** — Modern sidebar navigation with indigo accents
-- **Contact & Social Links** — Direct access to email, phone, GitHub, and LinkedIn
+### Senior Frontend Philosophy
+
+Moving from writing components to **designing systems**:
+
+```
+Component → Pattern → System → Governance → Scale
+```
+
+### Design System Expertise
+
+- **Component Libraries**: Reusable, composable UI elements
+- **Design Tokens**: Colors, typography, spacing standards
+- **Documentation**: Storybook, usage guidelines
+- **Governance**: Contribution workflows, versioning
 
 ---
 
 ## Tech Stack
 
-- **Frontend:** Vue 3, TypeScript
-- **Styling:** Tailwind CSS (dark theme)
-- **Icons:** Lucide Vue Next
-- **Build:** Vite
-- **Deployment:** GitHub Pages
+| Category | Technology |
+|----------|------------|
+| **Frontend** | Vue 3, TypeScript |
+| **State Management** | Pinia |
+| **Styling** | Tailwind CSS (dark theme) |
+| **Icons** | Lucide Vue Next |
+| **Build** | Vite |
+| **Deployment** | Firebase Hosting |
 
 ---
 
-## Deployment
+## 8 Portfolio Ecosystem
 
-| Platform | URL |
-|----------|-----|
-| **GitHub Pages** | [mk-knight23.github.io/06-portfolio-senior-frontend](https://mk-knight23.github.io/06-portfolio-senior-frontend/) |
+This is **#06 of 8** specialized experiences:
 
----
-
-## Local Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/mk-knight23/06-portfolio-senior-frontend.git
-
-# Navigate to project
-cd 06-portfolio-senior-frontend
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-```
+| # | Portfolio | Theme | URL |
+|---|-----------|-------|-----|
+| 01 | DevTools | Terminal/CLI | [Live](https://portfolio-devtools.web.app) |
+| 02 | Fullstack | Clean SaaS | [Live](https://mk-knight-fullstack.web.app) |
+| 03 | Frontend | Motion Design | [Live](https://mk-knight-frontend.web.app) |
+| 04 | Backend | Editorial | [Live](https://mk-knight-backend.web.app) |
+| 05 | Frontend AI | AI Lab | [Live](https://mk-knight-frontend-ai.web.app) |
+| 06 | **Senior Frontend** | Swiss Minimal | [Live](https://mk-knight-senior-frontend.web.app) |
+| 07 | Indie SaaS | Startup Style | [Live](https://portfolio-indie-saas.web.app) |
+| 08 | AI Automation | Systems Flow | [Live](https://portfolio-ai-automation.web.app) |
 
 ---
 
-## Contact
+## About Me
 
-- **Email:** [mk.knight970@gmail.com](mailto:mk.knight970@gmail.com)
-- **Phone:** +91 9765490536
-- **GitHub:** [mk-knight23](https://github.com/mk-knight23)
-- **LinkedIn:** [kazi-musharraf-0674871a4](https://www.linkedin.com/in/kazi-musharraf-0674871a4)
-- **Location:** Hyderabad, India
+**Kazi Musharraf** — Senior Frontend Developer
+
+- **Current**: Project Engineer (TURBO) at Wipro
+- **Focus**: Component architecture, design systems, Vue/React
+- **Experience**: 6+ years building production UIs
+
+### Connect
+
+- 📧 **Email**: [mk.knight970@gmail.com](mailto:mk.knight970@gmail.com)
+- 💻 **GitHub**: [@mk-knight23](https://github.com/mk-knight23)
+- 💼 **LinkedIn**: [kazi-musharraf](https://www.linkedin.com/in/kazi-musharraf-0674871a4)
+- 🌐 **Portfolio Hub**: [https://www.mkazi.live](https://www.mkazi.live)
 
 ---
 
-*Kazi Musharraf — Senior Frontend Developer — Part of 8-portfolio ecosystem*
+*Part of the 60 Projects Ecosystem — Built with precision and ☕*
 
-*Last Updated: January 2025*
+*Last Updated: February 2026*

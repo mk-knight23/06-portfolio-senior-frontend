@@ -22,6 +22,8 @@ import {
     Database,
     Server
 } from 'lucide-vue-next'
+import EcosystemsSection from './components/EcosystemsSection.vue'
+import PortfolioNav from './components/PortfolioNav.vue'
 
 // VIBE Ecosystem Products
 const vibeProducts = [
@@ -81,6 +83,7 @@ const filteredProjects = computed(() => {
 
 const navItems = [
     { id: 'overview', label: 'Overview', icon: Activity },
+    { id: 'ecosystems', label: 'Ecosystems', icon: Box },
     { id: 'vibe', label: 'VIBE Ecosystem', icon: Box },
     { id: 'work', label: 'Projects', icon: Code2 },
     { id: 'skills', label: 'Skills', icon: Database },
@@ -166,9 +169,12 @@ function setActiveSection(id: string) {
         <main class="flex-1 overflow-auto">
             <div class="p-8 max-w-6xl mx-auto">
                 <!-- Header -->
-                <header class="mb-8">
-                    <h1 class="text-3xl font-bold text-white mb-2">Portfolio Dashboard</h1>
-                    <p class="text-slate-400">AI Engineer & Indie Builder</p>
+                <header class="mb-8 flex items-start justify-between">
+                    <div>
+                        <h1 class="text-3xl font-bold text-white mb-2">Portfolio Dashboard</h1>
+                        <p class="text-slate-400">AI Engineer & Indie Builder</p>
+                    </div>
+                    <PortfolioNav />
                 </header>
 
                 <!-- Stats Grid -->
@@ -208,7 +214,7 @@ function setActiveSection(id: string) {
                 </div>
 
                 <!-- Overview Section -->
-                <section id="overview" class="mb-12">
+                <section id="overview" class="mb-12 scroll-mt-8">
                     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
                         <Activity class="w-5 h-5 text-indigo-500" />
                         Overview
@@ -254,8 +260,11 @@ function setActiveSection(id: string) {
                     </div>
                 </section>
 
+                <!-- Ecosystems Section -->
+                <EcosystemsSection />
+
                 <!-- VIBE Ecosystem Section -->
-                <section id="vibe" class="mb-12">
+                <section id="vibe" class="mb-12 scroll-mt-8">
                     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
                         <Box class="w-5 h-5 text-indigo-500" />
                         VIBE Ecosystem
@@ -307,7 +316,7 @@ function setActiveSection(id: string) {
                 </section>
 
                 <!-- Projects Section -->
-                <section id="work" class="mb-12">
+                <section id="work" class="mb-12 scroll-mt-8">
                     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
                         <Code2 class="w-5 h-5 text-indigo-500" />
                         Selected Projects
@@ -349,7 +358,7 @@ function setActiveSection(id: string) {
                 </section>
 
                 <!-- Skills Section -->
-                <section id="skills" class="mb-12">
+                <section id="skills" class="mb-12 scroll-mt-8">
                     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
                         <Database class="w-5 h-5 text-indigo-500" />
                         Skills & Expertise
@@ -385,7 +394,7 @@ function setActiveSection(id: string) {
                 </section>
 
                 <!-- Resume Section -->
-                <section id="resume" class="mb-12">
+                <section id="resume" class="mb-12 scroll-mt-8">
                     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
                         <Check class="w-5 h-5 text-indigo-500" />
                         Resume
@@ -517,7 +526,7 @@ function setActiveSection(id: string) {
                 </section>
 
                 <!-- Contact Section -->
-                <section id="contact" class="mb-12">
+                <section id="contact" class="mb-12 scroll-mt-8">
                     <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
                         <Server class="w-5 h-5 text-indigo-500" />
                         Get In Touch
