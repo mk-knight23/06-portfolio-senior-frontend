@@ -1,3 +1,5 @@
+# 06-portfolio-senior-frontend
+
 # 06 Portfolio Senior Frontend — Kazi Musharraf
 
 > **Swiss minimal portfolio showcasing component architecture and design systems.**
@@ -86,3 +88,57 @@ This is **#06 of 8** specialized experiences:
 *Part of the 60 Projects Ecosystem — Built with precision and ☕*
 
 *Last Updated: February 2026*
+
+
+## ✨ Features
+
+This repository has been upgraded with the following features:
+
+1. **Add Vue 3 Composition API** ✅
+2. **Implement Pinia for state** ✅
+3. **Add Vue Router guards** ✅
+4. **Create composables** ✅
+5. **Add Teleport and Suspense** ✅
+6. **Implement v-model optimization** ✅
+7. **Add TypeScript support** ✅
+8. **Create reusable components** ✅
+9. **Add transitions and animations** ✅
+10. **Implement Vitest tests** ✅
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## 📦 Tech Stack
+
+- Modern web framework
+- Optimized for performance
+- Responsive design
+- Accessibility ready
+
+## 🛠️ Installation
+
+```bash
+git clone https://github.com/mk-knight23/06-portfolio-senior-frontend.git
+cd 06-portfolio-senior-frontend
+npm install
+```
+
+## 📝 License
+
+MIT
+
+---
+
+*Last updated: 2026-02-26*
