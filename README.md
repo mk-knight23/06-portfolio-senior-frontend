@@ -142,3 +142,49 @@ MIT
 ---
 
 *Last updated: 2026-02-26*
+
+## 🏗️ Architecture
+
+```
+06-portfolio-senior-frontend/
+├── src/
+│   ├── components/     # Reusable Vue components
+│   ├── composables/    # Vue 3 composition functions
+│   ├── views/          # Page-level components
+│   ├── router/         # Vue Router configuration
+│   ├── stores/         # Pinia state management
+│   └── assets/         # Static assets
+├── public/             # Static files
+└── tests/              # Test suites
+```
+
+## 🌐 Deployment
+
+### Live URLs
+
+| Platform | URL |
+|----------|-----|
+| Firebase | https://mk-knight-senior-frontend.web.app |
+| GitHub Pages | [Deployed Link] |
+
+### Deploy to Firebase
+
+```bash
+npm run build
+firebase deploy
+```
+
+### Deploy to Vercel
+
+```bash
+npm install -g vercel
+vercel
+```
+
+## 📄 License
+
+MIT License - see LICENSE file for details
+
+---
+
+Built with ❤️ by mk-knight23
